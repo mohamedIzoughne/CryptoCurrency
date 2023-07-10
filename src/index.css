@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.15;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  margin-inline: 0 !important;
+  font-size: 1rem;
+  /* color: initial; */
+}
+
+/* Small */
+@media (min-width: 868px) {
+  .container {
+    width: 850px;
+  }
+}
+
+/* Medium */
+@media (min-width: 1092px) {
+  .container {
+    width: 1080px;
+  }
+}
+
+/* Large */
+@media (min-width: 1300px) {
+  .container {
+    width: 1270px;
+  }
+}
