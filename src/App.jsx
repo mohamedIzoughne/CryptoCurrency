@@ -9,6 +9,7 @@ import Currencies from './pages/Currencies'
 import CurrencyDetails from './pages/CurrencyDetails'
 
 import './App.css'
+import NewsPage from './pages/NewsPage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/currencies' element={<Currencies />} />
+            <Route path='/news' element={<NewsPage />} />
             <Route path='/currencies/:id' element={<CurrencyDetails />} />
           </Routes>
         </main>

@@ -37,7 +37,10 @@ const Navbar = () => {
         </li>
         <li>
           <span></span>
-          <Link className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'>
+          <Link
+            className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
+            to='/news'
+          >
             News
           </Link>
         </li>

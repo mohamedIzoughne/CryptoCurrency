@@ -3,8 +3,10 @@ import NewsItem from './NewsItem'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import useHttp from '../hooks/use-http'
+import Loader from '../UI/Loader'
 
-const LatestNews = () => {
+const LatestNews = ({ simplified }) => {
+  const RENDERED_NUM = simplified ? 6 : 10
   const url =
     'https://bing-news-search1.p.rapidapi.com/news/search?q=crypto&freshness=Day&textFormat=Raw&safeSearch=Off'
 
@@ -17,26 +19,33 @@ const LatestNews = () => {
     },
   }
 
-  const { fetchData, loadedData } = useHttp('news')
+  const { fetchData, loadedData, isLoading } = useHttp('news')
 
   useEffect(() => {
     fetchData(url, options)
   }, [fetchData])
 
   let { value: newsList } = loadedData
+  newsList = newsList ? newsList.slice(0, RENDERED_NUM) : []
 
-  newsList = newsList ? newsList : []
+  const header = (
+    <div className='flex items-center justify-between'>
+      <h1 className='text-2xl pb-3'>
+        <b>Latest Crypto News</b>
+      </h1>
+      <Link to='/news' className='text-blue-500 hover:underline'>
+        Show more
+      </Link>
+    </div>
+  )
+
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <section className='news mt-8'>
-      <div className='flex items-center justify-between'>
-        <h1 className='text-2xl pb-3'>
-          <b>Latest Crypto News</b>
-        </h1>
-        <Link to='/news' className='text-blue-500 hover:underline'>
-          Show more
-        </Link>
-      </div>
+      {simplified && header}
       <ul className='grid md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-2'>
         {newsList.map((news) => {
           return (

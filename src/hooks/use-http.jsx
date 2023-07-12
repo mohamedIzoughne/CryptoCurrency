@@ -3,8 +3,11 @@ import { useState } from 'react'
 
 const useHttp = (apiType) => {
   const [loadedData, setLoadedData] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
 
   let fetchData = async (url, options) => {
+    setIsLoading(true)
+
     try {
       const response = await fetch(url, options)
       if (!response.ok) {
@@ -23,6 +26,7 @@ const useHttp = (apiType) => {
     } catch (error) {
       console.error(error)
     }
+    setIsLoading(false)
   }
 
   fetchData = useCallback(fetchData, [])
@@ -30,6 +34,7 @@ const useHttp = (apiType) => {
   return {
     fetchData,
     loadedData,
+    isLoading,
   }
 }
 
