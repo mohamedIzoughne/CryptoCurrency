@@ -1,12 +1,13 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import Home from './pages/Home'
-
+import React, { Suspense } from 'react'
 import { Navbar, Footer } from './components'
 import { Routes, Route } from 'react-router-dom'
-import Currencies from './pages/Currencies'
-import CurrencyDetails from './pages/CurrencyDetails'
+import Loader from './UI/Loader'
+const Currencies = React.lazy(() => import('./pages/Currencies'))
+const CurrencyDetails = React.lazy(() => import('./pages/CurrencyDetails'))
+const Home = React.lazy(() => import('./pages/Home'))
 
 import './App.css'
 import NewsPage from './pages/NewsPage'
@@ -17,12 +18,14 @@ function App() {
       <section className='flex items-stretch container'>
         <Navbar />
         <main className='pages p-5 pt-10 bg-blue-50 basis-full'>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/currencies' element={<Currencies />} />
-            <Route path='/news' element={<NewsPage />} />
-            <Route path='/currencies/:id' element={<CurrencyDetails />} />
-          </Routes>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/currencies' element={<Currencies />} />
+              <Route path='/news' element={<NewsPage />} />
+              <Route path='/currencies/:id' element={<CurrencyDetails />} />
+            </Routes>
+          </Suspense>
         </main>
       </section>
       <Footer />

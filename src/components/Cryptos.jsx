@@ -4,6 +4,7 @@ import useHttp from '../hooks/use-http'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useRef } from 'react'
+import Loader from '../UI/Loader'
 
 const Cryptos = (props) => {
   const { simplified } = props
@@ -20,7 +21,7 @@ const Cryptos = (props) => {
   }
   const searchCoinsRef = useRef()
 
-  const { fetchData, loadedData: loadedCoinsData } = useHttp()
+  const { fetchData, loadedData: loadedCoinsData, isLoading } = useHttp()
 
   const coins = loadedCoinsData.coins ? getFilteredCoins() : []
 
@@ -63,7 +64,8 @@ const Cryptos = (props) => {
   return (
     <section className='cryptos mt-8'>
       {simplified && title}
-      {!simplified && searchBar}
+      {isLoading && <Loader />}
+      {!simplified && !isLoading && searchBar}
       <ul className='grid md:grid-cols-2 xl:grid-cols-4 gap-y-2 gap-x-2'>
         {coins.map((coin) => {
           return <Crypto key={coin.uuid} coin={coin} />

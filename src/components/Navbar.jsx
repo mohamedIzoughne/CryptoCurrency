@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom'
 import IMAGES from '../images/Images'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faHouse,
+  faNewspaper,
+  faMoneyBill,
+  faExchange,
+} from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
   return (
@@ -12,26 +19,27 @@ const Navbar = () => {
       </div>
       <ul className='mt-8'>
         <li>
-          <span></span>
           <Link
             to='/'
             className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
           >
+            <FontAwesomeIcon icon={faHouse} className='mr-3' />
             Home
           </Link>
         </li>
         <li className=''>
-          <span></span>
           <Link
             to='/currencies'
             className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
           >
+            <FontAwesomeIcon icon={faMoneyBill} className='mr-3' />
             Crypto currencies
           </Link>
         </li>
         <li>
           <span></span>
           <Link className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'>
+            <FontAwesomeIcon icon={faExchange} className='mr-3' />
             Exchanges
           </Link>
         </li>
@@ -41,6 +49,7 @@ const Navbar = () => {
             className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
             to='/news'
           >
+            <FontAwesomeIcon icon={faNewspaper} className='mr-3' />
             News
           </Link>
         </li>

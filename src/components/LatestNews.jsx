@@ -38,14 +38,10 @@ const LatestNews = ({ simplified }) => {
       </Link>
     </div>
   )
-
-  if (isLoading) {
-    return <Loader />
-  }
-
   return (
     <section className='news mt-8'>
       {simplified && header}
+      {isLoading && <Loader />}
       <ul className='grid md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-2'>
         {newsList.map((news) => {
           return (

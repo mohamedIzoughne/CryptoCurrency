@@ -1,0 +1,15 @@
+.value-stats li {
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+  background-color: #f2f1f1;
+  border-radius: 5px;
+}
+
+.value-stats li:hover {
+  border-bottom: 2px solid #e2dfdf;
+}
+
+.value-stats li h2 {
+  font-weight: bold;
+}
