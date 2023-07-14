@@ -1,4 +1,5 @@
-.value-stats li {
+.value-stats li,
+.links li {
   display: flex;
   padding: 15px;
   justify-content: space-between;
@@ -6,7 +7,8 @@
   border-radius: 5px;
 }
 
-.value-stats li:hover {
+.value-stats li:hover,
+.links li:hover {
   border-bottom: 2px solid #e2dfdf;
 }
 
