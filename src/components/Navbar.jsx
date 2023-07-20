@@ -38,7 +38,10 @@ const Navbar = () => {
         </li>
         <li>
           <span></span>
-          <Link className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'>
+          <Link
+            className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
+            to='/exchanges'
+          >
             <FontAwesomeIcon icon={faExchange} className='mr-3' />
             Exchanges
           </Link>

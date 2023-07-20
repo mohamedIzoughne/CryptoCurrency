@@ -6,6 +6,7 @@ import { Navbar, Footer } from './components'
 import { Routes, Route } from 'react-router-dom'
 import Loader from './UI/Loader'
 const Currencies = React.lazy(() => import('./pages/Currencies'))
+const ExchangesPage = React.lazy(() => import('./pages/ExchangesPage'))
 const CurrencyDetails = React.lazy(() => import('./pages/CurrencyDetails'))
 const Home = React.lazy(() => import('./pages/Home'))
 
@@ -24,6 +25,7 @@ function App() {
               <Route path='/currencies' element={<Currencies />} />
               <Route path='/news' element={<NewsPage />} />
               <Route path='/currencies/:id' element={<CurrencyDetails />} />
+              <Route path='/exchanges' element={<ExchangesPage />} />
             </Routes>
           </Suspense>
         </main>
