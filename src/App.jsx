@@ -2,7 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import React, { Suspense } from 'react'
-import { Navbar, Footer } from './components'
+import { Navbar, Footer, NavButton } from './components'
 import { Routes, Route } from 'react-router-dom'
 import Loader from './UI/Loader'
 const Currencies = React.lazy(() => import('./pages/Currencies'))
@@ -17,6 +17,7 @@ function App() {
     <>
       <section className='flex items-stretch container'>
         <Navbar />
+        <NavButton />
         <main className='pages p-5 pt-10 bg-blue-50 basis-full'>
           <Suspense fallback={<Loader />}>
             <Routes>

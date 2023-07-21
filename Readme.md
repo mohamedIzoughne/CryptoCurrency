@@ -13,6 +13,13 @@ This project was developed with the following technologies:
 - [Tailwind][tailwindcss]
 - [Rapid Api](https://rapidapi.com/)
 
+## What I learned
+
+- I practiced React
+- learned more about tailwind(how to make transitions with it)
+- how to use fontAwesome in a react project
+  ...
+
 ## Cloning and Running the Application in local
 
 Clone the project into local

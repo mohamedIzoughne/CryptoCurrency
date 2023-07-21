@@ -46,7 +46,7 @@ const CurrencyDetails = () => {
       <section className='value-stats grid grid-cols-1 sm:grid-cols-2 gap-x-3 mb-4'>
         <section>
           <h1 className='text-xl mb-3 text-center'>
-            <b>Bitcoin Value statistics </b>
+            <b>{coinInfo?.name || '...'} Value statistics </b>
           </h1>
           <ul>
             <li>
@@ -65,10 +65,6 @@ const CurrencyDetails = () => {
               <h2>Number of markets:</h2>
               <span>{millify(coinInfo?.tier)}</span>
             </li>
-            {/* <li>
-            <h2>24h Volume:</h2>
-            // {/* <span>{coinInfo['24hVolume']}</span> */}
-            {/* </li> */}
           </ul>
         </section>
         <section>
@@ -92,10 +88,12 @@ const CurrencyDetails = () => {
         </section>
       </section>
       <section>
-        <h1 className='text-2xl mb-1 text-blue-500'>
+        <h1 className='text-2xl mb-1 text-blue-500 text-center sm:text-left'>
           <b>What is {coinInfo?.name || '...'}? </b>
         </h1>
-        <p className='text-text-main'>{coinInfo?.description}</p>
+        <p className='text-text-main text-center sm:text-left'>
+          {coinInfo?.description}
+        </p>
       </section>
       <section className='mt-4'>
         <h1 className='links text-2xl mb-1 text-blue-500'>

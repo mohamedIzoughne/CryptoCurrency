@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom'
 import IMAGES from '../images/Images'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { twMerge } from 'tailwind-merge'
 import {
   faHouse,
   faNewspaper,
   faMoneyBill,
-  faExchange,
 } from '@fortawesome/free-solid-svg-icons'
 
-const Navbar = () => {
+const Navbar = ({ mobile, onClick }) => {
+  const cssShowOnMobile = mobile ? 'block absolute left-0 top-0 max-w-full' : ''
+
+  const navClasses = twMerge(
+    `duration-100 bg-main hidden content-box pr-8 text-white min-h-screen sm:block ${cssShowOnMobile}`
+  )
+
+  // {/*'hidden sm:block'*/ }
+
   return (
-    <nav className='bg-main w-fit content-box pr-8 text-white min-h-screen'>
+    <nav className={navClasses}>
       <div className='flex items-center'>
         <div className='image-holder p-3 w-16'>
           <img src={IMAGES.logo} alt='Logo' />
@@ -22,6 +30,7 @@ const Navbar = () => {
           <Link
             to='/'
             className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
+            onClick={onClick}
           >
             <FontAwesomeIcon icon={faHouse} className='mr-3' />
             Home
@@ -31,6 +40,7 @@ const Navbar = () => {
           <Link
             to='/currencies'
             className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
+            onClick={onClick}
           >
             <FontAwesomeIcon icon={faMoneyBill} className='mr-3' />
             Crypto currencies
@@ -40,17 +50,8 @@ const Navbar = () => {
           <span></span>
           <Link
             className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
-            to='/exchanges'
-          >
-            <FontAwesomeIcon icon={faExchange} className='mr-3' />
-            Exchanges
-          </Link>
-        </li>
-        <li>
-          <span></span>
-          <Link
-            className='block p-3 hover:bg-blue-400 cursor-pointer duration-75'
             to='/news'
+            onClick={onClick}
           >
             <FontAwesomeIcon icon={faNewspaper} className='mr-3' />
             News
