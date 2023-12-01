@@ -4,6 +4,7 @@ After finishing the React course by Maximilian on Udemy, I made this project to 
 also: the design of this project was taken from this repo: https://github.com/adrianhajdin/project_cryptoverse
 (but the code and technologies are completely different)
 
+to see the website in action: https://crypto-currency-with-api.web.app/
 ## 🚀 Technologies
 
 This project was developed with the following technologies:
@@ -22,7 +23,7 @@ This project was developed with the following technologies:
 
 ## Cloning and Running the Application in local
 
-Clone the project into local
+Clone the project into locale
 
 Install all the npm packages. Go into the project folder and type the following command to install all npm packages
 
