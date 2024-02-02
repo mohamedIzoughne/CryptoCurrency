@@ -1,5 +1,5 @@
-import { useCallback } from 'react'
-import { useState } from 'react'
+import { useCallback } from "react"
+import { useState } from "react"
 
 const useHttp = (apiType) => {
   const [loadedData, setLoadedData] = useState({})
@@ -11,13 +11,14 @@ const useHttp = (apiType) => {
     try {
       const response = await fetch(url, options)
       if (!response.ok) {
-        throw new Error('Something went wrong')
+        throw new Error("Something went wrong")
       }
 
       const result = await response.json()
 
+      console.log(result)
       switch (apiType) {
-        case 'news':
+        case "news":
           setLoadedData(result)
           break
         default:
@@ -29,7 +30,7 @@ const useHttp = (apiType) => {
     setIsLoading(false)
   }
 
-  fetchData = useCallback(fetchData, [])
+  fetchData = useCallback(fetchData, [apiType])
 
   return {
     fetchData,
