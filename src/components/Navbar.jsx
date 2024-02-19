@@ -15,8 +15,6 @@ const Navbar = ({ mobile, onClick }) => {
     `duration-100 bg-main hidden content-box pr-8 text-white min-h-screen sm:block ${cssShowOnMobile}`
   )
 
-  // {/*'hidden sm:block'*/ }
-
   return (
     <nav className={navClasses}>
       <div className="flex items-center">
